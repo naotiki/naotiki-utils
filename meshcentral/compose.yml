@@ -1,0 +1,12 @@
+services:
+  meshcentral:
+    build: .
+    container_name: meshcentral
+    ports:
+      - "8443:443"
+      - "8080:80"
+    volumes:
+      - ./meshcentral-data:/opt/meshcentral/meshcentral-data
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
